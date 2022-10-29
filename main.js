@@ -16,19 +16,33 @@ depositBtn.addEventListener("click", function () {
     // let depositNumber = parseFloat(depositAmount);
     let depositNumber = getInputNumber("depositAmount");
 
+    if (depositNumber < 0) {
+        alert("Deposit Amount does not accept negative value :( ");
+    }
+    else {
+        updateSpanText("currentDeposit", depositNumber);
+        updateSpanText("currentBalance", depositNumber);
+
+        document.getElementById("depositAmount").value = "";
+    }
+
     // let currentDeposit = document.getElementById("currentDeposit").innerText;
     // let currentDepositNumber = parseFloat(currentDeposit);
     // let totalDeposit = depositNumber + currentDepositNumber;
     // document.getElementById("currentDeposit").innerText = totalDeposit;
-    updateSpanText("currentDeposit", depositNumber);
+
+    // updateSpanText("currentDeposit", depositNumber);
 
     // let currentBalance = document.getElementById("currentBalance").innerText;
     // let currentBalanceNumber = parseFloat(currentBalance);
     // let totalBalance =  depositNumber + currentBalanceNumber;
     // document.getElementById("currentBalance").innerText = totalBalance;
-    updateSpanText("currentBalance", depositNumber);
 
-    document.getElementById("depositAmount").value = "";
+    // updateSpanText("currentBalance", depositNumber);
+
+    // document.getElementById("depositAmount").value = "";
+
+
 })
 
 
@@ -40,10 +54,20 @@ withdrawBtn.addEventListener("click", function () {
     // console.log(withdrawNumber);
     let withdrawNumber = getInputNumber("withdrawAmount");
 
-    updateSpanText("currentWithdraw", withdrawNumber);
-    updateSpanText("currentBalance", -1 * withdrawNumber);
+    if (withdrawNumber < 0) {
+        alert("Withdraw Amount does not accept negative value :( ");
+    }
+    else {
+        updateSpanText("currentWithdraw", withdrawNumber);
+        updateSpanText("currentBalance", -1 * withdrawNumber);
 
-    document.getElementById("withdrawAmount").value = "";
+        document.getElementById("withdrawAmount").value = "";
+    }
+
+    // updateSpanText("currentWithdraw", withdrawNumber);
+    // updateSpanText("currentBalance", -1 * withdrawNumber);
+
+    // document.getElementById("withdrawAmount").value = "";
 })
 
 /** ------- Catch the input value ------- */
